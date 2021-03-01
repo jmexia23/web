@@ -37,6 +37,7 @@ define(['../../utils/EventEmitter', 'libs/sharejs'], function(
         // Dencode any binary bits of data
         // See http://ecmanaut.blogspot.co.uk/2006/07/encoding-decoding-utf8-in-javascript.html
         this.doc_id = doc_id
+        this.doc_key = doc_id + ":" + socket.socket.sessionid //vfc
         this.socket = socket
         this.type = 'text'
         docLines = Array.from(docLines).map(line =>
@@ -83,7 +84,7 @@ define(['../../utils/EventEmitter', 'libs/sharejs'], function(
           id: this.socket.socket.sessionid
         }
 
-        this._doc = new ShareJs.Doc(this.connection, this.doc_id, {
+        this._doc = new ShareJs.Doc(this.connection, this.doc_key, { //vfc
           type: this.type
         })
         this._doc.setFlushDelay(SINGLE_USER_FLUSH_DELAY)
