@@ -69,6 +69,9 @@ define(['../../utils/EventEmitter', 'libs/sharejs'], function(
               }
               update.meta.tc = this.track_changes_id_seeds.inflight
             }
+
+            update.doc = this.doc_id; //vfc work around 
+
             return this.socket.emit(
               'applyOtUpdate',
               this.doc_id,
