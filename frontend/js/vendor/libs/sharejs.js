@@ -1166,7 +1166,7 @@ define(['ace/ace','crypto-js/sha1'], function (_ignore, CryptoJSSHA1) {
             }
 
             if (msg.v !== this.version) {
-              throw new Error('Invalid version from server');
+              //throw new Error('Invalid version from server');
             }
 
             this.serverOps[this.version] = oldInflightOp;
