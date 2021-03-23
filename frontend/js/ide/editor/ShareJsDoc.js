@@ -70,7 +70,7 @@ define(['../../utils/EventEmitter', 'libs/sharejs'], function(
               update.meta.tc = this.track_changes_id_seeds.inflight
             }
 
-            update.doc = this.doc_id; //vfc work around 
+            //update.doc = this.doc_id; //vfc work around 
 
             return this.socket.emit(
               'applyOtUpdate',
@@ -87,7 +87,7 @@ define(['../../utils/EventEmitter', 'libs/sharejs'], function(
           id: this.socket.socket.sessionid
         }
 
-        this._doc = new ShareJs.Doc(this.connection, this.doc_key, { //vfc
+        this._doc = new ShareJs.Doc(this.connection, this.doc_id, { //vfc
           type: this.type
         })
         this._doc.setFlushDelay(SINGLE_USER_FLUSH_DELAY)
